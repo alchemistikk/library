@@ -1,25 +1,15 @@
 const wrapper = document.querySelector(".wrapper");
+const button = document.querySelector(".button");
 
-let myLibrary = [
-  {
-    title: "The Great Gatsby",
-    author: "F. Scott Fitgerald",
-  },
-  {
-    title: "The Sun Also Rises",
-    author: "Ernest Hemingway",
-  },
-  {
-    title: "The Three-Body Problem",
-    author: "Liu Cixin",
-  },
-];
+let myLibrary = [];
 
-function Book() {
-  // the constructor...
+function Book(title, author) {
+  this.title = title;
+  this.author = author;
 }
 
-function addBookToLibrary(book) {
+function addBookToLibrary(title, author) {
+  const book = new Book(title, author);
   myLibrary.push(book);
 }
 
@@ -32,5 +22,9 @@ function displayBooks() {
     p.textContent = `${book.title} ${book.author}`;
   });
 }
+
+addBookToLibrary("The Great Gatsby", "F. Scott Fizgerald");
+addBookToLibrary("The Sun Also Rises", "Ernest Hemingway");
+addBookToLibrary("The Three-Body Problem", "Liu Cixin");
 
 displayBooks();
